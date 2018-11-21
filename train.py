@@ -73,7 +73,7 @@ class Train():
                 _,loss_,cls_loss_,reg_loss_,lr_,debug_pre_cls_,debug_pre_reg_,debug_pre_score_,debug_pre_box_,label_,target_box_=\
                 sess.run([train_op,loss,cls_loss,reg_loss,lr,debug_pre_cls,debug_pre_reg,debug_pre_score,debug_pre_box,label,target_box],feed_dict=feed_dict)
                 if step %1000==0:
-                    debug(detection_p[0],detection_label_p,debug_pre_cls_,debug_pre_reg_,debug_pre_score_,debug_pre_box_,label_,target_box_,step)
+                    debug(detection_p[0],detection_label_p,debug_pre_cls_,debug_pre_reg_,debug_pre_score_,debug_pre_box_,label_,target_box_,step,self.anchor_op)
             #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
             else:
                 _,loss_,cls_loss_,reg_loss_,lr_=sess.run([train_op,loss,cls_loss,reg_loss,lr],feed_dict=feed_dict)

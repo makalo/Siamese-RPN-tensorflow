@@ -1,6 +1,7 @@
 import numpy as np
 from config import cfg
-def debug(self,img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step):
+import cv2
+def debug(img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step,anchor_op):
     img=(img*255).astype(np.uint8)
     #print('=============================================================')
     # pre_cls=pre_cls.reshape((-1,2))
@@ -65,9 +66,9 @@ def debug(self,img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step):
 
     #============pre_box===========
     box=boxes
-    anchors=self.anchor_op.anchors
-    anchors=self.anchor_op.corner_to_center(anchors)
-    diff_anchors=self.anchor_op.diff_anchor_gt(gt,anchors)
+    anchors=anchor_op.anchors
+    anchors=anchor_op.corner_to_center(anchors)
+    diff_anchors=anchor_op.diff_anchor_gt(gt,anchors)
     anchor=anchors[index]#[x1,y1,x2,y2]
 
 
@@ -86,7 +87,7 @@ def debug(self,img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step):
     # b[1]=b[1]-b[3]/2
     # b[2]=b[0]+b[2]
     # b[3]=b[1]+b[3]#[x1,y1,x2,y2]
-    b=self.anchor_op.center_to_corner(b)
+    b=anchor_op.center_to_corner(b)
 
 
     #if b[2]<1000 and b[3]<1000:
@@ -95,6 +96,7 @@ def debug(self,img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step):
         color = color * 255
         color = color.astype(np.int32).tolist()
         cv2.rectangle(img,(int(bbox[0]),int(bbox[1])),(int(bbox[2]),int(bbox[3])),color,1)
+    cv2.rectangle(img,(int(b[0][0]),int(b[0][1])),(int(b[0][2]),int(b[0][3])),(0,0,0),2)
     #============pre_box===========
 
 
@@ -116,8 +118,8 @@ def debug(self,img,gt,pre_cls,pre_reg,pre_score,pre_box,label,target_box,step):
     gt[1]=gt[1]-gt[3]/2
     gt[2]=gt[0]+gt[2]
     gt[3]=gt[1]+gt[3]
-    cv2.rectangle(img,(int(gt[0]),int(gt[1])),(int(gt[2]),int(gt[3])),(0,0,255),1)
-    cv2.imwrite(cfg.debug_dir+str(step)+'.jpg',img)
+    cv2.rectangle(img,(int(gt[0]),int(gt[1])),(int(gt[2]),int(gt[3])),(0,0,255),2)
+    cv2.imwrite(cfg.debug_dir+'/'+str(step)+'.jpg',img)
     #============gt_box===========
     # print('===========reg===========')
     # print(b.astype(np.int32))
