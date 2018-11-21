@@ -29,7 +29,9 @@ Code for reproducing the results in the following paper:
 **bbox in vedio** 
 The red box is for tracing
 <div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
+
 ## Training and Evaluation
+
 If your data format is the same as VOT 2013, you can run the code directly. If not, you need to change the utils/image_reader.py or convert the data format to VOT format.
 
 ### To train Siamese-RPN:
