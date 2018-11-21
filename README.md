@@ -58,10 +58,3 @@ The 'test.mp4' is the name of your vedio
 **bbox in vedio** 
 The red box is for tracing
 <div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
-
-
-## the model 
-Since the YouTube-bb data set is very large, I will provide a model for training on the YouTube-bb data set in the next period of time.
-
-
-
