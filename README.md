@@ -12,7 +12,7 @@ cuda=9.0
 ## Downloading VOT2013 Data
 - Enter http://data.votchallenge.net/vot2013/vot2013.zip in your browser
 - Unzip the file and move to `./data`
-## Downloading VOT2013 Data
+## Downloading YouTube-bb Data
 - git clone https://github.com/mbuckler/youtube-bb.git
 - python3 download.py ./data 12
 ## Training and Evaluation
