@@ -1,7 +1,8 @@
 # Siamese-RPN-tensorflow
 Code for reproducing the results in the following paper:
-
-[**High Performance Visual Tracking with Siamese Region Proposal Network**](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_High_Performance_Visual_CVPR_2018_paper.pdf)  
+- [**High Performance Visual Tracking with Siamese Region Proposal Network**](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_High_Performance_Visual_CVPR_2018_paper.pdf)  
+- [Pytorch version](https://github.com/songdejia/siamese-RPN.git) has been available by my classmates.
+- Anthor version [zkisthebest/Siamese-RPN](https://github.com/zkisthebest/Siamese-RPN.git) have lots of bugs.So I have to re-implementation by myself
 ## Environment
 python=3.6
 tensorflow=1.10
