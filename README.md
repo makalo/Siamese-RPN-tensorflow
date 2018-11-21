@@ -43,8 +43,26 @@ If you are testing a video, you need to put the video in./data/vedio. You can ru
 python vedio_test.py test.mp4
 ```
 The 'test.mp4' is the name of your vedio
+## Visualization for debug
 
-### the model 
+**bbox in detection** 
+
+- red   -- the groundtruth
+
+- black -- bbox with highest score
+
+- other colors -- bbox with scores from second to tenth.
+
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/visual/170.jpg
+"/></div>
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/visual/90.jpg
+"/></div>
+**bbox in vedio** 
+The red box is for tracing
+[![Watch the video](https://github.com/makalo/Siamese-RPN-tensorflow/data/vedio/test_box.mp4)]
+
+
+## the model 
 Since the YouTube-bb data set is very large, I will provide a model for training on the YouTube-bb data set in the next period of time.
 
 
