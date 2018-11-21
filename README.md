@@ -28,13 +28,17 @@ self.is_debug=True
 ```
 This will result in a debug folder where you can see pictures of the training process, with groundtruth in red and box in top 10 scores in other colors.
 ### To test Siamese-RPN:
+
 **To test series of images like VOT format**
+
 If you want to test a series of images captured from the video, you need to assign new values `img_path`and `img_label` in config.py, which are the files of your image's path and label, respectively. Then execute the following commands
 ```
 python test.py
 ```
 This command will automatically synthesize videos from image sequences, and also synthesize videos from processed images, which are saved in. / data / vedio
+
 **To test a vedio**
+
 If you are testing a video, you need to put the video in./data/vedio. You can run the following command and select the object you want to track in the first frame according to the program prompt at the beginning.
 ```
 python vedio_test.py test.mp4
