@@ -14,6 +14,21 @@ Code for reproducing the results in the following paper:
 ## Downloading YouTube-bb Data
 - git clone https://github.com/mbuckler/youtube-bb.git
 - python3 download.py ./data 12
+## Visualization for debug
+
+**bbox in detection** 
+
+- red   -- the groundtruth
+
+- black -- bbox with highest score
+
+- other colors -- bbox with scores from second to tenth.
+
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/170.jpg"/></div>
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/90.jpg"/></div>
+**bbox in vedio** 
+The red box is for tracing
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
 ## Training and Evaluation
 If your data format is the same as VOT 2013, you can run the code directly. If not, you need to change the utils/image_reader.py or convert the data format to VOT format.
 
@@ -43,18 +58,3 @@ If you are testing a video, you need to put the video in./data/vedio. You can ru
 python vedio_test.py test.mp4
 ```
 The 'test.mp4' is the name of your vedio
-## Visualization for debug
-
-**bbox in detection** 
-
-- red   -- the groundtruth
-
-- black -- bbox with highest score
-
-- other colors -- bbox with scores from second to tenth.
-
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/170.jpg"/></div>
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/90.jpg"/></div>
-**bbox in vedio** 
-The red box is for tracing
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
