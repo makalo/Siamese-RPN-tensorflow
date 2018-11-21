@@ -1,6 +1,4 @@
 # Siamese-RPN-tensorflow
-This version works good and the other Siamese-RPN in the github have many bugs
-
 Code for reproducing the results in the following paper:
 
 [**High Performance Visual Tracking with Siamese Region Proposal Network**](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_High_Performance_Visual_CVPR_2018_paper.pdf)  
