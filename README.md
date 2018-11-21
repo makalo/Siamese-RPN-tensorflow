@@ -53,13 +53,13 @@ The 'test.mp4' is the name of your vedio
 
 - other colors -- bbox with scores from second to tenth.
 
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/visual/170.jpg
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/170.jpg
 "/></div>
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/visual/90.jpg
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/90.jpg
 "/></div>
 **bbox in vedio** 
 The red box is for tracing
-[![Watch the video](https://github.com/makalo/Siamese-RPN-tensorflow/data/vedio/test_box.mp4)]
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
 
 
 ## the model 
