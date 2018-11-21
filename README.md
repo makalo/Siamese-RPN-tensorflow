@@ -60,3 +60,6 @@ If you are testing a video, you need to put the video in./data/vedio. You can ru
 python vedio_test.py test.mp4
 ```
 The 'test.mp4' is the name of your vedio
+### Model
+
+I will provide the well-trained model in the next few days
