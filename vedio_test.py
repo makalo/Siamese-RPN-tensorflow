@@ -8,6 +8,7 @@ from module.gen_ancor import Anchor
 import time
 import sys
 from config import cfg
+import imageio
 class VedioTest():
     def __init__(self):
         self.reader=Image_reader(mode='vedio')
@@ -81,6 +82,7 @@ class VedioTest():
         #===================init-vedio======================
 
         ret, frame = cap.read()
+        frames=[]
 
         while(cap.isOpened()):
             if self.select:
@@ -91,6 +93,7 @@ class VedioTest():
             elif(self.initTracking):
                 cv2.rectangle(frame,(self.ix,self.iy), (self.ix+self.w,self.iy+self.h), (0,255,255), 2)
                 videoWriter.write(frame)
+                frames.append(frame[:,:,::-1])
                 #===================init-net======================
                 frame,box_ori,img_p,box_p,offset,ratio=self.reader.get_vedio_data(img=frame,box_ori=[self.ix,self.iy,self.w,self.h],frame_n=0)
                 img_p=np.expand_dims(img_p,axis=0)
@@ -121,6 +124,7 @@ class VedioTest():
                 self.duration = 0.8*self.duration + 0.2*(t1-t0)
                 cv2.putText(frame, 'FPS: '+str(1/self.duration)[:4].strip('.'), (8,20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
                 videoWriter.write(frame)
+                frames.append(frame[:,:,::-1])
                 #===================update-net======================
             cv2.imshow('tracking', frame)
             if self.select:
@@ -132,6 +136,8 @@ class VedioTest():
             c = cv2.waitKey(self.inteval) & 0xFF
             if c==27 or c==ord('q'):
                 break
+        print('GIF and video are being synthesized.place wait for one minute..............')
+        imageio.mimsave(os.path.join(self.vedio_dir,self.vedio_name.split('.')[0]+'_box.gif'), frames, 'GIF', duration=0.01)
         videoWriter.release()
         cap.release()
         cv2.destroyAllWindows()
