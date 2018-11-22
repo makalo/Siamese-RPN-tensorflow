@@ -14,6 +14,11 @@ Code for reproducing the results in the following paper:
 ## Downloading YouTube-bb Data
 - git clone https://github.com/mbuckler/youtube-bb.git
 - python3 download.py ./data 12
+## Performance
+
+The red box is for tracing
+<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
+
 ## Visualization for debug
 
 **bbox in detection** 
@@ -26,9 +31,6 @@ Code for reproducing the results in the following paper:
 
 <div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/170.jpg"/></div>
 <div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/90.jpg"/></div>
-**bbox in vedio** 
-The red box is for tracing
-<div align=center><img width="400" height="400" src="https://github.com/makalo/Siamese-RPN-tensorflow/blob/master/visual/test.gif"/></div>
 
 ## Training and Evaluation
 
