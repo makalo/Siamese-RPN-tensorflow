@@ -6,6 +6,7 @@ import numpy as np
 import cv2
 from module.gen_ancor import Anchor
 from config import cfg
+import imageio
 class Test():
     def __init__(self):
         self.reader=Image_reader(img_path=cfg.img_path,label_path=cfg.label_path)
@@ -56,7 +57,7 @@ class Test():
             print(" [!] Load failed...")
         #================start-tensorflow===================
 
-
+        frames=[]
         for step in range(self.reader.img_num):
             img,box_ori,img_p,box_p,offset,ratio=self.reader.get_data(frame_n=step,pre_box=pre_box)
             #print(img.shape)
@@ -72,6 +73,7 @@ class Test():
                 conv_c_,conv_r_=sess.run([pre_conv_c,pre_conv_r],feed_dict=feed_dict)
                 pre_box=box_ori#[x,y,w,h]===x,y is left-top corner
             else:
+                frames.append(img[:,:,::-1])
                 videoWriter.write(img)
                 pre_cls_,pre_reg_=sess.run([pre_cls,pre_reg],feed_dict=feed_dict)
                 bbox=self.nms(img_p[0],pre_cls_,pre_reg_,box_p)
@@ -91,7 +93,8 @@ class Test():
 
                 pre_box[2]=pre_box[2]-pre_box[0]
                 pre_box[3]=pre_box[3]-pre_box[1]
-
+        print('GIF and video are being synthesized.place wait for one minute..............')
+        imageio.mimsave(os.path.join(self.vedio_dir,self.vedio_name.split('.')[0]+'_box.gif'), frames, 'GIF', duration=0.01)
         videoWriter.release()
         videoWriter_box.release()
         print('vedio is saved in '+self.vedio_dir)
