@@ -14,6 +14,8 @@ Code for reproducing the results in the following paper:
 ## Downloading YouTube-bb Data
 - git clone https://github.com/mbuckler/youtube-bb.git
 - python3 download.py ./data 12
+## Downloading ILSVRC 2015-VID Data
+- wget http://bvisionweb1.cs.unc.edu/ilsvrc2015/ILSVRC2015_VID.tar.gz
 ## Performance
 
 The red box is for tracing
