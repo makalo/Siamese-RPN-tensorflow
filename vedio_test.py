@@ -50,12 +50,20 @@ class VedioTest():
         conv_c_=np.zeros((4,4,256,10))
         pre_box=None
         #===================input-output====================
+<<<<<<< HEAD
+=======
+
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         #======================hanning======================
         window = np.outer(np.hanning(17), np.hanning(17))
         window=np.stack([window,window,window,window,window],-1)
         self.window=window.reshape((-1))
         #======================hanning======================
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         #================start-tensorflow===================
         loader=tf.train.Saver()
         config=tf.ConfigProto()
@@ -175,10 +183,10 @@ class VedioTest():
         img=(img*255).astype(np.uint8)
         target_sz=gt_p[2:]
         score=scores[:,1]
-        #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
-        b=self.anchor_op.center_to_corner(gt_p.reshape((1,4)))
-        cv2.rectangle(img,(int(b[0][0]),int(b[0][1])),(int(b[0][2]),int(b[0][3])),(0,255,0),1)
-        #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
+        # #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
+        # b=self.anchor_op.center_to_corner(gt_p.reshape((1,4)))
+        # cv2.rectangle(img,(int(b[0][0]),int(b[0][1])),(int(b[0][2]),int(b[0][3])),(0,255,0),1)
+        # #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
         bboxes=np.zeros_like(delta)
         bboxes[:,0]=delta[:,0]*self.anchors[:,2]+self.anchors[:,0]
         bboxes[:,1]=delta[:,1]*self.anchors[:,3]+self.anchors[:,1]
@@ -214,12 +222,12 @@ class VedioTest():
 
         self.lr = penalty[best_pscore_id] * score[best_pscore_id] * self.lr
         bbox=bboxes[best_pscore_id].reshape((1,4))#[x,y,w,h]
-        #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
-        b=self.anchor_op.center_to_corner(bbox)
-        cv2.rectangle(img,(int(b[0][0]),int(b[0][1])),(int(b[0][2]),int(b[0][3])),(255,0,0),1)
-        cv2.imshow('resize',img)
-        cv2.waitKey(0)
-        #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
+        # #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
+        # b=self.anchor_op.center_to_corner(bbox)
+        # cv2.rectangle(img,(int(b[0][0]),int(b[0][1])),(int(b[0][2]),int(b[0][3])),(255,0,0),1)
+        # cv2.imshow('resize',img)
+        # cv2.waitKey(0)
+        # #+++++++++++++++++++++debug++++++++++++++++++++++++++++++
 
         return bbox[0],best_pscore
 

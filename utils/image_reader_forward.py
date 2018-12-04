@@ -17,6 +17,10 @@ class Image_reader():
                     box=line.split(',')
                     self.boxes.append([int(float(box[0])),int(float(box[1])),int(float(box[2])),int(float(box[3]))])
                     line=f.readline().strip('\n')
+<<<<<<< HEAD
+=======
+
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
             #===========label===============
 
             #===========img_list============
@@ -33,6 +37,7 @@ class Image_reader():
         img=cv2.imread(os.path.join(self.img_path,self.imgs[frame_n]))
         box_ori=self.boxes[frame_n]#[x,y,w,h]===x,y is left-top corner
         if frame_n==0:
+<<<<<<< HEAD
             img_p,box_p,offset,ratio=self.crop_resize(img,box_ori,1,search=1)
         else:
             img_p,box_p,offset,ratio=self.crop_resize(img,pre_box,2,search=2)
@@ -43,6 +48,18 @@ class Image_reader():
             img_p,box_p,offset,ratio=self.crop_resize(img,box_ori,1,search=1,note=note)
         else:
             img_p,box_p,offset,ratio=self.crop_resize(img,pre_box,2,search=2,note=note)
+=======
+            img_p,box_p,offset,ratio=self.crop_resize(img,box_ori,1)
+        else:
+            img_p,box_p,offset,ratio=self.crop_resize(img,pre_box,2)
+        return img,box_ori,img_p,box_p,offset,ratio
+    def get_vedio_data(self,img,box_ori=None,frame_n=0,pre_box=None):
+        #[x,y,w,h]===x,y is left-top corner
+        if frame_n==0:
+            img_p,box_p,offset,ratio=self.crop_resize(img,box_ori,1)
+        else:
+            img_p,box_p,offset,ratio=self.crop_resize(img,pre_box,2)
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         return img,box_ori,img_p,box_p,offset,ratio
     def recover(self,box,offset,ratio):
         #label=[c_x,c_y,w,h]
@@ -58,12 +75,17 @@ class Image_reader():
 
         return box
 
+<<<<<<< HEAD
     def crop_resize(self,img,label,rate=1,search=1,note=None):
+=======
+    def crop_resize(self,img,label,rate=1):
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         #label=[x,y,w,h]===x,y is left-top corner
         #print(label)
         x,y,w,h=label
         heigh,width=img.shape[:2]
         img=img.astype(np.float32)
+<<<<<<< HEAD
         mean_axis=np.mean(img,axis=(0,1)).astype(np.float32)
         #===========================rectify==========================
         if not note is None and len(note)>0:
@@ -107,6 +129,15 @@ class Image_reader():
         if search==1:
             side=round(np.sqrt(s)*rate)
         if search==2:
+=======
+        #mean_axis=np.mean(np.mean(img,0),0).astype(np.float32)
+        mean_axis=np.mean(img,axis=(0,1)).astype(np.float32)
+        p=(w+h)/2
+        s=(w+p)*(h+p)
+        if rate==1:
+            side=round(np.sqrt(s)*rate)
+        if rate==2:
+>>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
             scale_z=127/np.sqrt(s)
             d_search = (255 - 127) / 2
             pad = d_search / scale_z
