@@ -50,20 +50,12 @@ class VedioTest():
         conv_c_=np.zeros((4,4,256,10))
         pre_box=None
         #===================input-output====================
-<<<<<<< HEAD
-=======
-
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         #======================hanning======================
         window = np.outer(np.hanning(17), np.hanning(17))
         window=np.stack([window,window,window,window,window],-1)
         self.window=window.reshape((-1))
         #======================hanning======================
-<<<<<<< HEAD
         
-=======
-
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         #================start-tensorflow===================
         loader=tf.train.Saver()
         config=tf.ConfigProto()

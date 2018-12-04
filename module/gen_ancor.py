@@ -143,7 +143,6 @@ class Anchor():
         #print(target_outside_weight_box[np.where(target_outside_weight_box>0)])
         return label,target_box,target_inside_weight_box,target_outside_weight_box,all_box
 
-<<<<<<< HEAD
     def pos_neg_anchor2(self,gt):
         all_box=self.anchors.copy()
         all_box[np.where(all_box<0)]=0
@@ -184,8 +183,6 @@ class Anchor():
         return all_box
 
 
-=======
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
 if __name__=='__main__':
     import sys
     sys.path.append('../')
@@ -203,11 +200,7 @@ if __name__=='__main__':
     gt=detection_label_p
     gt_array=np.array(gt).reshape((1,4))
     gt_array=test.center_to_corner(gt_array)[0]
-<<<<<<< HEAD
     label,target_box,_,_,all_box=test.pos_neg_anchor2(gt)
-=======
-    label,target_box,_,_,all_box=test.pos_neg_anchor(gt)
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
 
     #negtive
     index=np.where(label==0)

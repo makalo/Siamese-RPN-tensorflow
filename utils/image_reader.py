@@ -20,17 +20,12 @@ class Image_reader():
                         box=line2.split(',')
                         boxes.append([int(float(box[0])),int(float(box[1])),int(float(box[2])),int(float(box[3]))])
                         line2=f2.readline().strip('\n')
-<<<<<<< HEAD
                     self.cate_box[line]=np.array(boxes)
-=======
-                    self.cate_box[line]=boxes
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
                 #===========label===============
 
                 #===========img_list============
                 img_list=[x for x in os.listdir(os.path.join(self.root_dir,line)) if 'jpg' in x]
                 img_list.sort()
-<<<<<<< HEAD
                 self.cate_list[line]=np.array(img_list)
                 #===========img_list============
 
@@ -46,19 +41,12 @@ class Image_reader():
                 #=============filter============
                 line=f.readline().strip('\n')
         print(self.img_num)
-=======
-                self.img_num+=len(img_list)
-                self.cate_list[line]=img_list
-                line=f.readline().strip('\n')
-                #===========img_list============
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
 
     def get_data(self,batch_size=1):
         cate=np.random.choice(list(self.cate_list.keys()))
         img_list=self.cate_list[cate]
         label_list=self.cate_box[cate]
 
-<<<<<<< HEAD
         index_t=np.random.choice(range(len(img_list)))
         interval=np.random.choice(range(30,100))
         index_d=[index_t-interval if index_t-interval>0 else index_t+interval,index_t+interval if index_t+interval<len(img_list) else index_t-interval]
@@ -69,15 +57,6 @@ class Image_reader():
 
         template_label=label_list[index_t]
         detection_label=label_list[index_d]
-=======
-        index=np.random.choice(range(len(img_list)-self.interval))
-
-        template=cv2.imread(os.path.join(self.root_dir,cate,img_list[index]))
-        detection=cv2.imread(os.path.join(self.root_dir,cate,img_list[index+self.interval]))
-
-        template_label=label_list[index]
-        detection_label=label_list[index+self.interval]
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
 
         template_p,template_label_p,_,_=self.crop_resize(template,template_label,1)
         detection_p,detection_label_p,offset,ratio=self.crop_resize(detection,detection_label,2)
@@ -142,11 +121,7 @@ class Image_reader():
         return resize_img,label,offset,ratio
 
 if __name__=='__main__':
-<<<<<<< HEAD
     reader=Image_reader('../data/VID')
-=======
-    reader=Image_reader('../data/vot2013')
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
     for i in range(20):
         template_p,template_label_p,detection_p,detection_label_p,offset,ratio,detection,detection_label=reader.get_data()
         box=np.zeros(4)
@@ -169,11 +144,7 @@ if __name__=='__main__':
         cv2.rectangle(img,(int(box[0]),int(box[1])),(int(box[2]),int(box[3])),(255,0,0),1)
         cv2.rectangle(img,(int(detection_label[0]),int(detection_label[1])),(int(detection_label[2]),int(detection_label[3])),(0,0,255),1)
         cv2.imshow('img',img)
-<<<<<<< HEAD
         cv2.imshow('img2',(template_p*255).astype(np.uint8))
-=======
-        #cv2.imshow('img2',(template_p*255).astype(np.uint8))
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
         cv2.waitKey(0)
 
 
