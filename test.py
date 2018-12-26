@@ -81,19 +81,19 @@ class Test():
 
                 img=cv2.rectangle(img,(int(pre_box[0]),int(pre_box[1])),(int(pre_box[2]),int(pre_box[3])),(0,0,255),1)
 
-<<<<<<< HEAD
+
                 # #+++++++++++++++++++++gt_box++++++++++++++++++++++++++++++
                 # box_ori[2]=box_ori[0]+box_ori[2]
                 # box_ori[3]=box_ori[1]+box_ori[3]
                 # img=cv2.rectangle(img,(int(box_ori[0]),int(box_ori[1])),(int(box_ori[2]),int(box_ori[3])),(0,0,0),1)
                 # #+++++++++++++++++++++gt_box++++++++++++++++++++++++++++++
-=======
+
                 #+++++++++++++++++++++gt_box++++++++++++++++++++++++++++++
                 # box_ori[2]=box_ori[0]+box_ori[2]
                 # box_ori[3]=box_ori[1]+box_ori[3]
                 # img=cv2.rectangle(img,(int(box_ori[0]),int(box_ori[1])),(int(box_ori[2]),int(box_ori[3])),(0,0,0),1)
                 #+++++++++++++++++++++gt_box++++++++++++++++++++++++++++++
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
+
 
                 cv2.imshow('img',img)
                 cv2.waitKey(10)
@@ -179,8 +179,5 @@ class Test():
 
 if __name__=='__main__':
     t=Test()
-<<<<<<< HEAD
     t.test()
-=======
-    t.test()
->>>>>>> e690ed5433117e707ff59f34ddd6f793a9c8807b
+
